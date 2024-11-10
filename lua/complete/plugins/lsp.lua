@@ -1,5 +1,6 @@
 return {
     "hrsh7th/nvim-cmp",
+    event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
@@ -12,7 +13,13 @@ return {
 
         cmp.setup {
             mapping = {
-                ['<Enter>'] = cmp.mapping.confirm({ select = true })
+                ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+                ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+                ['<Enter>'] = cmp.mapping.confirm({ select = true }),
+                ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+                ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                ['<C-Space>'] = cmp.mapping.complete(),
+                ['<C-e>'] = cmp.mapping.abort()
             },
             sources = cmp.config.sources(
                 {
@@ -44,5 +51,7 @@ return {
             }),
             matching = { disallow_symbol_nonprefix_matching = false }
         })
+
+        require("complete.lsp").setup()
     end
 }
