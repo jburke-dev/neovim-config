@@ -5,7 +5,6 @@ local api = require("minimal.api")
 function M.setup()
     vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(ev)
-            vim.notify("Lsp Attached!")
             local opts = { buffer = ev.buf }
 
             api.keymap({ shortcut = "[d", action = vim.diagnostic.goto_prev })

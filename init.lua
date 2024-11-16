@@ -23,3 +23,4 @@ require("lazy").setup({
 
 require("minimal.mappings")
 require("minimal.autocmds")
+require("complete.ui").setup()
