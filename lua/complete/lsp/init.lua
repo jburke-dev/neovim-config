@@ -21,6 +21,8 @@ function M.setup()
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
     require("complete.lsp.lua_ls").setup(capabilities)
+    require("complete.lsp.typescript").setup(capabilities)
+    require("complete.lsp.csharp").setup(capabilities)
 end
 
 return M
