@@ -6,7 +6,8 @@ return {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
-        "neovim/nvim-lspconfig"
+        "neovim/nvim-lspconfig",
+        "zbirenbaum/copilot-cmp"
     },
     config = function()
         local cmp = require("cmp")
@@ -30,6 +31,9 @@ return {
                 },
                 {
                     { name = "buffer" }
+                },
+                {
+                    { name = "copilot" }
                 }
             )
         }
