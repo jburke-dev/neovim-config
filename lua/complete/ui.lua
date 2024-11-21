@@ -22,6 +22,19 @@ function M.setup()
             }
         }
     })
+    api.keymap_group({
+        group_name = "telescope_copilot",
+        group_shortcut = "c",
+        keymaps = {
+            {
+                shortcut = "p",
+                action = function ()
+                    local actions = require("CopilotChat.actions")
+                    require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
+                end
+            }
+        }
+    })
 end
 
 return M
