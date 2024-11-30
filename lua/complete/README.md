@@ -10,3 +10,4 @@ Batteries included Neovim configuration, built on top of [my minimal configurati
 # Prerequisites
 
 - [lua language server](https://luals.github.io/)
+- [typescript-language-server](https://github.com/typescript-language-server/typescript-language-server)
