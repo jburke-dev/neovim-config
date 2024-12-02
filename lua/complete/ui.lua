@@ -19,6 +19,10 @@ function M.setup()
             {
                 shortcut = "s",
                 action = builtin.lsp_document_symbols
+            },
+            {
+                shortcut = "r",
+                action = builtin.lsp_references
             }
         }
     })
