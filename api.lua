@@ -42,4 +42,17 @@ function M.keymap_group(args)
     end
 end
 
+--- @param input_str string
+--- @param sep string|nil
+function M.split_str(input_str, sep)
+    if sep == nil then
+        sep = "%s"
+    end
+    local t = {}
+    for str in string.gmatch(input_str, "([^" .. sep .. "]+)") do
+        table.insert(t, str)
+    end
+    return t
+end
+
 return M

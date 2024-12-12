@@ -6,7 +6,8 @@ return {
             servers = {
                 lua_ls = require("complete.lsp.lua_ls"),
                 ts_ls = require("complete.lsp.typescript"),
-                omnisharp = require("complete.lsp.csharp")
+                omnisharp = require("complete.lsp.csharp"),
+                yamlls = require("complete.lsp.yamlls")
             }
         }
         local lspconfig = require("lspconfig")

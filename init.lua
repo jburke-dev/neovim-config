@@ -11,16 +11,18 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("minimal.opts")
+local profile = require("profiles")
 
--- TODO: figure out how to load complete optionally
+vim.g.mapleader = " "
+vim.g.maplocalleader = ","
+
 require("lazy").setup({
-    spec = {
-        { import = "minimal.plugins" },
-        { import = "complete.plugins" }
-    }
+    spec = profile.plugins
 })
 
-require("minimal.mappings")
-require("minimal.autocmds")
-require("complete.ui").setup()
+for _, import_str in ipairs(profile.imports) do
+    local profile_module = require(import_str)
+    if type(profile_module) == "table" and profile_module.setup then
+        profile_module.setup()
+    end
+end

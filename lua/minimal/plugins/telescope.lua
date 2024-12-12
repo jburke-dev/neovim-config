@@ -2,7 +2,7 @@ return {
     'nvim-telescope/telescope.nvim',
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-        local api = require("minimal.api")
+        local api = require("api")
         local builtin = require("telescope.builtin")
 
         api.keymap_group({
