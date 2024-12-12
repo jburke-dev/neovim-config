@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-    local api = require("api")
+    local api = require("common.api")
     local builtin = require("telescope.builtin")
 
     api.keymap_group({

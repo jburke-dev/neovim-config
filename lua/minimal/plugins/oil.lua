@@ -3,7 +3,7 @@ return {
     config = function()
         require("oil").setup()
 
-        local api = require("api")
+        local api = require("common.api")
 
         api.keymap({
             shortcut = "-",

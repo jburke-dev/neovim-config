@@ -1,11 +1,12 @@
 local M = {}
 
-local api = require("api")
+local api = require("common.api")
 
 --- @enum ProfileNames
 M.ProfileNames = {
     Complete = "complete",
-    Minimal = "minimal"
+    Minimal = "minimal",
+    Neorg = "neorg"
 }
 
 --- @alias Profiles ProfileNames[]
@@ -30,7 +31,8 @@ local resolved_env = parse_custom_env() or default_env
 --- @type { [ProfileNames]: string[] } 
 local all_profiles = {
     [M.ProfileNames.Minimal] = { "opts", "mappings", "autocmds" },
-    [M.ProfileNames.Complete] = { "ui" }
+    [M.ProfileNames.Complete] = { "ui" },
+    [M.ProfileNames.Neorg] = {}
 }
 
 -- from resolved_env and all_profiles, we want to return two fields on the module: -- imports, which is just a set of modules to require()
