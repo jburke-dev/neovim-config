@@ -4,6 +4,7 @@ return {
     config = function (_, opts)
         opts = {
             servers = {
+                dockerls = require("complete.lsp.dockerls"),
                 lua_ls = require("complete.lsp.lua_ls"),
                 ts_ls = require("complete.lsp.typescript"),
                 omnisharp = require("complete.lsp.csharp"),
