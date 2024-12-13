@@ -7,6 +7,8 @@ return {
                 lua_ls = require("complete.lsp.lua_ls"),
                 ts_ls = require("complete.lsp.typescript"),
                 omnisharp = require("complete.lsp.csharp"),
+                svelte = require("complete.lsp.svelte"),
+                tailwindcss = require("complete.lsp.tailwindcss"),
                 yamlls = require("complete.lsp.yamlls")
             }
         }

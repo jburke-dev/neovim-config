@@ -9,7 +9,12 @@ return {
             ['<S-Tab>'] = { 'select_prev', 'fallback' },
             ['<CR>'] = { 'accept', 'fallback' }
         },
-        nerd_font_variant = 'mono'
+        nerd_font_variant = 'mono',
+        completion = {
+            trigger = {
+                show_on_x_blocked_trigger_characters = { "'", '"', '(', '{', ',' }
+            }
+        }
     },
 
     sources = {
