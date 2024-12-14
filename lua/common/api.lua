@@ -12,10 +12,11 @@ M.Modes = {
 }
 
 --- @class KeymapArgs
---- @field mode modes
+--- @field mode? modes The vim mode the map applies to.  Defaults to normal mode ('n')
 --- @field shortcut string
 --- @field action string|function
---- @field opts table
+--- @field opts? table
+--- @param args KeymapArgs
 function M.keymap(args)
     local options = { noremap = true }
     if type(args.shortcut) ~= "string" then
@@ -35,6 +36,7 @@ end
 --- @field group_name string
 --- @field group_shortcut string
 --- @field keymaps KeymapArgs[]
+--- @param args KeymapGroupArgs
 function M.keymap_group(args)
     for _, keymap in ipairs(args.keymaps) do
         keymap.shortcut = "<leader>" .. args.group_shortcut .. keymap.shortcut

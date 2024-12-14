@@ -19,5 +19,39 @@ return {
             config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
             lspconfig[server].setup(config)
         end
+
+        vim.api.nvim_create_autocmd("LspAttach", {
+            callback = function(args)
+                local api = require("common.api")
+                api.keymap({
+                    shortcut = "gd",
+                    action = vim.lsp.buf.definition
+                })
+                api.keymap({
+                    shortcut = "gD",
+                    action = vim.lsp.buf.declaration
+                })
+                api.keymap({
+                    shortcut = "gi",
+                    action = vim.lsp.buf.implementation
+                })
+                api.keymap_group({
+                    group_name = "lsp actions",
+                    group_shortcut = "a",
+                    keymaps = {
+                        {
+                            shortcut = "c",
+                            action = vim.lsp.buf.code_action,
+                            opts = { buffer = args.buf }
+                        },
+                        {
+                            shortcut = "r",
+                            action = vim.lsp.buf.rename,
+                            opts = { buffer = args.buf }
+                        }
+                    }
+                })
+            end
+        })
     end
 }
