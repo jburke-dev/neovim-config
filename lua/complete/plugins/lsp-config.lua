@@ -1,12 +1,13 @@
 return {
     'neovim/nvim-lspconfig',
     dependencies = { 'saghen/blink.cmp' },
-    config = function (_, opts)
+    config = function(_, opts)
         opts = {
             servers = {
                 dockerls = require("complete.lsp.dockerls"),
                 lua_ls = require("complete.lsp.lua_ls"),
                 ts_ls = require("complete.lsp.typescript"),
+                gopls = require("complete.lsp.gopls"),
                 omnisharp = require("complete.lsp.csharp"),
                 svelte = require("complete.lsp.svelte"),
                 tailwindcss = require("complete.lsp.tailwindcss"),
